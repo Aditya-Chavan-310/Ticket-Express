@@ -1,0 +1,216 @@
+/* General Styles */
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background: url('2.jpg') no-repeat center center fixed; /* Replace with your image */
+    background-size: cover;
+    color: #333;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+    overflow-y: hidden; /* Prevent vertical scroll */
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 80px 20px 20px; /* Added top padding for the navbar */
+}
+
+/* Navbar Styles */
+.navbar {
+    width: 100%;
+    background: linear-gradient(to right, #009688, #004d40); /* Teal gradient background */
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    z-index: 9999;
+    padding: 15px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+    border-bottom: 2px solid #b2dfdb; /* Light teal border for separation */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+}
+
+.site-name {
+    color: white;
+    font-size: 28px; /* Larger font size */
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase; /* Uppercase text */
+    letter-spacing: 1px; /* Spacing between letters */
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+}
+
+.navbar a {
+    color: white;
+    text-align: center;
+    padding: 12px 20px;
+    text-decoration: none; /* Removes underline */
+    font-size: 18px;
+    margin-left: 20px; /* Space between links */
+    border-radius: 5px; /* Rounded corners for links */
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.navbar a:hover {
+    background-color: rgba(255, 255, 255, 0.3); /* Light hover effect */
+    color: #e0f2f1; /* Light teal text color on hover */
+}
+
+.navbar a:first-child {
+    margin-left: 0; /* Remove left margin for the first link */
+}
+
+/* Header Section */
+header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: rgba(255, 255, 255, 0.3); /* Semi-transparent background for readability */
+    padding: 40px 20px;
+    border-radius: 10px;
+    position: relative;
+    z-index: 1; /* Ensure it stays above other content */
+}
+
+.header-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    transition: opacity 0.5s ease, transform 0.5s ease; /* Smooth transition for appearance */
+}
+
+.tagline-container {
+    position: relative;
+    transition: opacity 0.5s ease, transform 0.5s ease; /* Smooth transition for tagline */
+}
+
+header h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #004d40; /* Dark green color for the header */
+}
+
+#book-tickets-btn {
+    background-color: #009688; /* Teal button */
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transition */
+    z-index: 1; /* Ensure it stays above the other elements */
+}
+
+#book-tickets-btn:hover {
+    background-color: #00796b; /* Darker teal on hover */
+    transform: scale(1.05); /* Slightly scale button on hover */
+}
+
+/* Modal Cards Styles */
+#modal-cards {
+    display: flex;
+    position: absolute;
+    top: 100px; /* Position below the header */
+    left: 0; /* Full width */
+    width: 100%; /* Full width */
+    height: calc(100vh - 100px); /* Height covering the space below the header */
+    gap: 20px; /* Space between cards */
+    opacity: 0; /* Initially hidden */
+    pointer-events: none; /* Prevent interaction when hidden */
+    transition: opacity 0.5s ease, transform 0.5s ease; /* Smooth transition */
+    transform: translateY(-50px); /* Initial offset for smoother appearance */
+    justify-content: center; /* Center cards horizontally */
+    align-items: center; /* Center cards vertically */
+}
+
+#modal-cards.show {
+    opacity: 1; /* Show cards when active */
+    pointer-events: auto; /* Allow interaction when visible */
+    transform: translateY(0); /* Ensure cards are in place */
+}
+
+.modal-card {
+    background: url('1.jpg') no-repeat center center; /* Background image for the card */
+    background-size: cover;
+    color: white;
+    padding: 20px;
+    border-radius: 10px; /* Rounded corners for a more prominent look */
+    flex: 1; /* Grow to fill the available space */
+    max-width: 250px; /* Maximum width for cards */
+    height: 300px; /* Fixed height for cards */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Shadow for depth */
+    position: relative; /* To position the info overlay */
+    cursor: pointer; /* Indicate that the card is clickable */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth scale transition */
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Hide overflow to keep the card neat */
+}
+
+.modal-card .info {
+    position: absolute; /* Position the info within the card */
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background for readability */
+    color: white;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.3s ease; /* Smooth appearance */
+}
+
+.modal-card:hover .info {
+    opacity: 1; /* Show the info text on hover */
+}
+
+.modal-card:hover {
+    transform: scale(1.1); /* Increase size on hover */
+    z-index: 10; /* Bring hovered card to the front */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4); /* Increase shadow on hover */
+}
+
+.modal-card:not(:hover) {
+    transform: scale(0.95); /* Shrink non-hovered cards */
+    z-index: 1; /* Send non-hovered cards behind */
+}
+
+/* Hide elements when cards are shown */
+#modal-cards.show ~ .header-content,
+#modal-cards.show ~ #book-tickets-btn {
+    opacity: 0; /* Fade out */
+    transform: translateY(-50px); /* Move up */
+    pointer-events: none; /* Prevent interaction */
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .nav-links {
+        flex-direction: column;
+        align-items: flex-start;
+        margin-top: 10px;
+    }
+
+    .navbar a {
+        margin-left: 0;
+        padding: 10px 15px;
+    }
+
+    #modal-cards {
+        flex-direction: column; /* Stack cards vertically on small screens */
+        height: calc(100vh - 100px); /* Adjust height for smaller screens */
+    }
+}
